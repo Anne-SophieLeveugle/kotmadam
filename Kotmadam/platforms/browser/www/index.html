@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+    <script>
+        var config = {
+            apiKey: "AIzaSyASbezHj7eABkvB2AN4MxgGpmm9Rlpiqwg",
+            authDomain: "kotmadam-89e25.firebaseapp.com",
+            databaseURL: "https://kotmadam-89e25.firebaseio.com",
+            projectId: "kotmadam-89e25",
+            storageBucket: "kotmadam-89e25.appspot.com",
+            messagingSenderId: "319124172009"
+        };
+            firebase.initializeApp(config);
+    </script>
+    <link rel="stylesheet" type="text/css" href="css/dncalendar-skin.min.css">
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/cordova.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>Registreren</title>
+</head>
+<body>
+<div class="aanmelden">
+   <h1>Registreren</h1>
+    <div class="registreren" is="dom-bind" id="app">
+        <input type="file" id="photo" style="display: none;" onchange="checkinputregister('photo')">
+        <button value="Browse..." onclick="document.getElementById('photo').click();" class="imagebutton" id="imagebutton">Profielfoto toevoegen</button>
+        <label>Naam<br><input id="naam" type="text" placeholder="naam" required/></label>
+        <label>Email adres<br><input id="mail" type="text" placeholder="email" required/></label>
+        <label>Wachtwoord<br><input type="password" id="pasword" placeholder="wachtwoord" required/></label>
+        <label>Telefoonnummer<br><input id="tel" type="text"placeholder="telefoonnummer" required/></label>
+        <label>Kot<br><input id="kot" type="text"placeholder="kot" required/></label>
+        <button onclick="window.open('signin.html', '_system')" class="toevoegen registrerenbut specialbutton">Sign In</button>
+        <button onclick="register()" class="toevoegen registrerenbut">Register</button>
+    </div>
+    <img src="img/achtergrond.png" alt="background" class="backgroundaanmelden"/>
+</div>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/firebaseFunctions.js"></script>
+</body>
+</html>

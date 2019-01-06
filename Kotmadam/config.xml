@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.phonegap.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Kotmadam</name>
+    <description>
+        A blank PhoneGap app.
+    </description>
+    <author email="support@phonegap.com" href="http://phonegap.com">
+        PhoneGap Team
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <engine name="browser" spec="~5.0.4" />
+    <plugin name="cordova-plugin-calendar" spec="https://github.com/EddyVerbruggen/Calendar-PhoneGap-Plugin.git" />
+    <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
+    <plugin name="cordova-plugin-calendar" />
+    <preference name="android-build-tool" value="gradle" />
+    <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
+    <preference name="StatusBarBackgroundColor" value="#000000" />
+    <plugin name="cordova-plugin-firebase" spec="2.0.5" />
+</widget>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submit form</title>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/cordova.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyASbezHj7eABkvB2AN4MxgGpmm9Rlpiqwg",
+            authDomain: "kotmadam-89e25.firebaseapp.com",
+            databaseURL: "https://kotmadam-89e25.firebaseio.com",
+            projectId: "kotmadam-89e25",
+            storageBucket: "kotmadam-89e25.appspot.com",
+            messagingSenderId: "319124172009"
+        };
+        firebase.initializeApp(config);
+    </script>
+<script>
+
+
+    var storage = firebase.storage();
+    var pathReference = storage.ref('1546745882800-IMG_0854.jpg');
+    //var storageRef = firebase.storage.ref("1546745882800-IMG_0854.jpg");
+    pathReference.getDownloadURL().then(function(url) {
+        console.log(url);
+    });
+
+    function uploadFile() {
+        var foto = document.getElementById("photo").value.split(/(\\|\/)/g).pop();
+        console.log(foto);
+        const ref = firebase.storage().ref();
+        const file = $('#photo').get(0).files[0];
+        const name = (+new Date()) + '-' + file.name;
+        var user = firebase.auth().currentUser.uid;
+        console.log(user)
+        var metadata = {
+            customMetadata: {
+                'userid': user,
+            }
+        }
+        const task = ref.child(name).put(file, metadata);
+        task.then((snapshot) => {console.log(snapshot.downloadURL)});
+        task
+            .then((snapshot) => {
+                document.querySelector('#someImageTagID').src = snapshot.downloadURL;
+            })
+            .catch((error) => {
+                // A list of errors can be found at
+                // https://firebase.google.com/docs/storage/web/handle-errors
+                switch (error.code) {
+                    case 'storage/unauthorized':
+                        // User doesn't have permission to access the object
+                        break;
+                    case 'storage/canceled':
+                        // User canceled the upload
+                        break;
+                    case 'storage/unknown':
+                        // Unknown error occurred
+                        break;
+                }
+            })
+    }
+</script>
+</head>
+<body>
+<input type="file" id="photo">
+<button onclick="uploadFile()">klik</button>
+</body>
+</html>

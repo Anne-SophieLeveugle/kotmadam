@@ -1,0 +1,24 @@
+{
+  "name": "com.phonegap.helloworld",
+  "version": "1.0.0",
+  "displayName": "Kotmadam",
+  "cordova": {
+    "platforms": [
+      "browser"
+    ],
+    "plugins": {
+      "cordova-plugin-calendar": {},
+      "cordova-plugin-inappbrowser": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-firebase": {}
+    }
+  },
+  "dependencies": {
+    "cordova-browser": "~5.0.4",
+    "cordova-plugin-calendar": "git+https://github.com/EddyVerbruggen/Calendar-PhoneGap-Plugin.git",
+    "cordova-plugin-firebase": "2.0.5",
+    "cordova-plugin-inappbrowser": "^3.0.0",
+    "cordova-plugin-statusbar": "^2.4.2",
+    "firebase-admin": "^6.4.0"
+  }
+}
